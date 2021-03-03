@@ -77,14 +77,11 @@ class ItemController extends Controller
         $existItem=Item::find($id);
         if($existItem){
             $existItem->completed=$request->item['completed'] ? true :false;
-            $existItem->completed_at=$request->item['completed'] ? Carbon::now() :false;          
+            $existItem->completed_at=$request->item['completed'] ? Carbon::now() :null;          
             $existItem->save();
-
             return $existItem;
-       
         }
-        return "item not find";
-
+        return "Item Not Find.";
     }
 
     /**
